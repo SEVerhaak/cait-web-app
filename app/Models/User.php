@@ -49,4 +49,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function events()
+    {
+        return $this->belongsToMany(Event::class)->withPivot('status', 'signed_up_at')->withTimestamps();
+    }
 }
